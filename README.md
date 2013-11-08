@@ -12,6 +12,8 @@ It uses the following existing options in the library:
 * gradientTexture (use a PNG instead of default green to red)
 * alphaRange (show transparency)
 
+See the example: http://ursudio.com/webgl-heatmap-leaflet/
+
 ***
 Usage
 ===
