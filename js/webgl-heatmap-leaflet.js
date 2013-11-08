@@ -53,6 +53,7 @@ L.TileLayer.WebGLHeatMap = L.Class.extend({
 			var timeout;
 			var self = this;
 			window.onresize = function () {
+				window.clearTimeout(timeout);
 				timeout = window.setTimeout(function () {
 					self.resize();
 				}, 250);
