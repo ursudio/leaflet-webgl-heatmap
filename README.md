@@ -55,3 +55,11 @@ for (var i = 0, len = dataPoints.length; i < len; i++) {
 Add heatmap to map
 ---
 ``map.addLayer(heatmap);``
+
+Options
+===
+* size (in meters)
+* opacity (for the canvas element)
+* gradientTexture (url to gradient PNG)
+* alphaRange (adjust transparency by changing to value between 0 and 1)
+* autoresize (resize heatmap on window resize: recommended)
