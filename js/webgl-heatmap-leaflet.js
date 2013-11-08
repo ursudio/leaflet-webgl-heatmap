@@ -10,8 +10,7 @@ L.TileLayer.WebGLHeatMap = L.Class.extend({
         size: 30000, // in meters
         opacity: 1,
 		gradientTexture: false,
-		alphaRange: 1,
-		autoresize: false
+		alphaRange: 1
     },
     
     initialize: function (options) {
@@ -41,31 +40,18 @@ L.TileLayer.WebGLHeatMap = L.Class.extend({
 
         this.canvas = c;
         
-		/* This needs to be fixed somehow. 'moveend' triggers this._plot 3 times for each window resize. */
-		map.on("moveend", this._plot, this);
-		
+		map.on("move", this._plot, this);
+
 		/* hide layer on zoom, because it doesn't animate zoom */
 		map.on("zoomstart", this._hide, this);
 		map.on("zoomend", this._show, this);
-		
-		if (this.options.autoresize) {
-			//a timeout should keep the function from running constantly while resizing
-			var timeout;
-			var self = this;
-			window.onresize = function () {
-				window.clearTimeout(timeout);
-				timeout = window.setTimeout(function () {
-					self.resize();
-				}, 250);
-			};
-		}
 		
         this._plot();
     },
 	
 	onRemove: function (map) {
         map.getPanes().overlayPane.removeChild(this.canvas);
-        map.off("moveend", this._plot, this);
+        map.off("move", this._plot, this);
 		map.off("zoomstart", this._hide, this);
 		map.off("zoomend", this._show, this);
     },
@@ -84,9 +70,15 @@ L.TileLayer.WebGLHeatMap = L.Class.extend({
 		heatmap.display();
 	},
 	
+	_resizeRequest : undefined,
+	
 	_plot: function () {
 		this.active = true;
 		var map = this.map;
+		if (this._resizeRequest !== map._resizeRequest) {
+			this.resize();
+			this._resizeRequest = map._resizeRequest;
+		}
 		var heatmap = this.WebGLHeatMap;
 		heatmap.clear();
 		L.DomUtil.setPosition(this.canvas, map.latLngToLayerPoint(map.getBounds().getNorthWest()));
@@ -125,8 +117,6 @@ L.TileLayer.WebGLHeatMap = L.Class.extend({
 		this.canvas.height = mapsize.y;
 		
 		this.WebGLHeatMap.adjustSize();
-		
-		this._plot();
 	},
 	
     addDataPoint: function (lat, lon, value) {

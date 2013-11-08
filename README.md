@@ -32,8 +32,7 @@ var map = L.map('map', {layers: [base]}).setView(your-lng-lat, your-zoom-level);
 Initialize Heatmap
 ---    
 ``var heatmap = new L.TileLayer.WebGLHeatMap({
-         size: diameter-in-meters, 
-         autoresize: true
+         size: diameter-in-meters
 });``
 
 Add Data
@@ -64,7 +63,6 @@ Options
 * opacity (for the canvas element)
 * gradientTexture (url to gradient PNG)
 * alphaRange (adjust transparency by changing to value between 0 and 1)
-* autoresize (resize heatmap on window resize: recommended)
 
 License
 ===
