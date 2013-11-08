@@ -65,3 +65,7 @@ Options
 * gradientTexture (url to gradient PNG)
 * alphaRange (adjust transparency by changing to value between 0 and 1)
 * autoresize (resize heatmap on window resize: recommended)
+
+License
+===
+* MIT: see mit-license
