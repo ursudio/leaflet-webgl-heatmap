@@ -20,14 +20,14 @@ Usage
 
 Set up your map
 ---
-``var baseURL = 'http://{s}.tile.cloudmade.com/{API}/{map_style}/256/{z}/{x}/{y}.png';
+var baseURL = 'http://{s}.tile.cloudmade.com/{API}/{map_style}/256/{z}/{x}/{y}.png';
     
 var base = L.tileLayer(baseURL, { 
 	API: your-api, 
 	map_style: '44094' 
 });
    
-var map = L.map('map', {layers: [base]}).setView(your-lng-lat, your-zoom-level);``
+var map = L.map('map', {layers: [base]}).setView(your-lng-lat, your-zoom-level);
 
 Initialize Heatmap
 ---    
