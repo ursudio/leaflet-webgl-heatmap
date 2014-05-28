@@ -8,7 +8,7 @@ function printTitle ($title) {
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="author" content="Benjamin J DeLong" />
+<meta name="author" content="Ursudio" />
 <meta name="robots" content="noindex, nofollow, noarchive" />
 <meta name="viewport" content="width=820" />
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css"></link>
