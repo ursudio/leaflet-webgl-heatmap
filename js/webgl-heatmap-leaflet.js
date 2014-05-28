@@ -24,7 +24,7 @@ L.TileLayer.WebGLHeatMap = L.Class.extend({
 		var options = this.options;
 		
 		var c = document.createElement("canvas");
-		c.id = 'webgl-leaflet';
+		c.id = 'webgl-leaflet-' + L.Util.stamp(this);
         c.width = mapsize.x;
         c.height = mapsize.y;
         c.style.opacity = options.opacity;
