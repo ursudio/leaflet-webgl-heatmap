@@ -4,7 +4,7 @@
  * Please attribute Ursudio in any production associated with this javascript plugin.
  */
 
-L.TileLayer.WebGLHeatMap = L.Class.extend({
+L.TileLayer.WebGLHeatMap = L.TileLayer.extend({
 
     options: {
         size: 30000, // in meters
@@ -102,7 +102,7 @@ L.TileLayer.WebGLHeatMap = L.Class.extend({
     _scale: function (latlng) {
 	// necessary to maintain accurately sized circles
 	// to change scale to miles (for example), you will need to convert 40075017 (equatorial circumference of the Earth in metres) to miles
-        var lngRadius = (this.options.size / 40075017) * 360 / Math.cos(L.LatLng.DEG_TO_RAD * latlng.lat);
+        var lngRadius = (this.options.size / 40075017) * 360 / Math.cos(Math.PI / 180 * latlng.lat);
 	var latlng2 = new L.LatLng(latlng.lat, latlng.lng - lngRadius);
 	var point = this.map.latLngToLayerPoint(latlng);
 	var point2 = this.map.latLngToLayerPoint(latlng2);
