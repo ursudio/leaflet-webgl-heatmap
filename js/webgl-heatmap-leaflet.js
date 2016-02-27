@@ -43,7 +43,6 @@ L.WebGLHeatMap = L.Class.extend({
 		map.getPanes().overlayPane.appendChild( this.canvas );
 		this._events('on');
 		this.resize();
-		this.draw();
     },
     
     onRemove: function (map) {
@@ -78,6 +77,8 @@ L.WebGLHeatMap = L.Class.extend({
 		canvas.height = size.y;
 
 		this.gl.adjustSize();
+		this.reposition();
+		this.draw();
     },
     
     reposition: function () {
@@ -104,7 +105,6 @@ L.WebGLHeatMap = L.Class.extend({
 
     moveend : function () {
     	this.resize();
-    	this.reposition();
     },
 	
     draw : function () {
