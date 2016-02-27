@@ -9,7 +9,8 @@ L.WebGLHeatMap = L.Class.extend({
 	version : '0.7.7', // tested with leaflet v 0.7.7
 
     options: {
-        size: 30000, // in meters
+        size: 30000,
+        units : 'm', // m|px
         opacity: 1,
 		gradientTexture: false,
 		alphaRange: 1
@@ -31,6 +32,11 @@ L.WebGLHeatMap = L.Class.extend({
 		});
 
 		this.canvas = c;
+    },
+
+    addTo : function (map) {
+    	map.addLayer( this );
+    	return this;
     },
 
     onAdd: function (map) {
@@ -148,6 +154,8 @@ L.WebGLHeatMap = L.Class.extend({
 	// necessary to maintain accurately sized circles
 	// to change scale to miles (for example), you will need to convert 40075017 (equatorial circumference of the Earth in metres) to miles
     _scale: function (latlng) {
+    	if (this.options.units == 'px') return this.options.size;
+
         var map = this.map,
         	lngRadius = (this.options.size / 40075017) * 
         	360 / Math.cos(L.LatLng.DEG_TO_RAD * latlng.lat),
