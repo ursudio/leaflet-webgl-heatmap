@@ -7,10 +7,12 @@
   "devDependencies": {
     "browsersync": "0.0.1-security",
     "gulp": "^3.9.1",
-    "leaflet": "^1.0.1"
+    "leaflet": "^1.0.1",
+    "uglify-js": "^2.7.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "uglifyjs dist/webgl-heatmap-leaflet.js -c -m -o dist/webgl-heatmap-leaflet.min.js"
   },
   "repository": {
     "type": "git",
