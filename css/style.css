@@ -1,5 +1,9 @@
 @import 'shCoreEclipse.css';
 
+* {
+	box-sizing: border-box;
+}
+
 html { 
 	background:#FFF; 
 	color:#444;
