@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>WebGL Heatmap Leaflet Plugin</title>
+  <meta name="author" content="Ursudio" />
+  <meta name="description" content="A Leaflet plugin for a popular WebGL Heatmap library.">
+
+  <link rel="canonical" href="http://ursudio.github.io/webgl-heatmap-leaflet/" />
+  <link rel="icon" href="./favicon.ico" sizes="16x16 32x32 48x48 64x64" />
+
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans|Fjalla+One" type="text/css" />
+  <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <link rel="stylesheet" href="./css/style.css" type="text/css" />
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-12338134-13', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  
+</head>
+	<body>
+		<div class="first container">
+			<div id="navigation">
+				<ul>
+					<li><a target="_blank" data-title="View on Github" href="https://github.com/ursudio/webgl-heatmap-leaflet"><img src="images/github_icon_20.png" height="20"
+					 /></a></li>
+					 <li class="floatRight"><a target="_blank" data-title="See more Ursudio projects" href="http://www.ursudio.com/"><img src="images/apple-touch-icon.png" height="20"
+					 /></a></li>
+					 <li class="floatRight"><a target="_blank" data-title="Try out Leaflet" href="http://www.leafletjs.com/"><img src="images/leaflet_icon_20.png" height="20"
+					 /></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="second container">
+			<div id="header">
+				<h1>WebGL Heatmap Leaflet Plugin</h1>
+				<h2>Using the <a href="http://codeflow.org/entries/2013/feb/04/high-performance-js-heatmaps/" target="_blank">WebGL Heatmap library</a>, made by Florian Bösch <a href="https://twitter.com/pyalot" target="_blank">(@pyalot)</a></h2>
+			</div>
+		</div>
+		<div id="map"></div>
+		<div class="container">
+			<h2><a href="#data" id="data">Data</a></h2>
+			<p>
+			A visualization of the frequency and location of instagram photos tagged with <a href="http://instagram.com/aokhalifax" target="_blank">#aokhalifax</a>, a grass roots initiative to brighten the perspective of citizens and tourists: the goal being to promote positivity in Halifax.
+			</p>
+			<h2><a href="#options" id="options">Options</a></h2>
+			<ul>
+				<li><b>size</b>: in meters (default: 30km)</li>
+				<li><b>opacity</b>: in percent/100 (default: 1)</li>
+				<li><b>gradientTexture</b>: url-to-texture-image (default: false)</li>
+				<li><b>alphaRange</b>: change transparency in heatmap (default: 1)</li>
+				<li><b>autoresize</b>: resize heatmap when map size changes (default: false)</li>
+			</ul>
+			<h2><a href="#usage" id="usage">Usage</a></h2>
+			<pre class="brush: js;">
+    //Halifax, Nova Scotia
+	var map = L.map('map', {
+		layers : [base],
+		center : [44.65, -63.57],
+		zoom: 12 
+	});
+    
+	L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg', {
+		subdomains: '1234'
+	}).addTo( map );
+
+	L.control.scale().addTo(map);
+	
+	//custom size for this example
+	var heatmap = L.webGLHeatmap({size: 1000}); 
+	
+	// dataPoints is an array of arrays: [[lat, lng, intensity]...]
+	var dataPoints = [[44.6674, -63.5703, 37], [44.6826, -63.7552, 34], [44.6325, -63.5852, 41], [44.6467, -63.4696, 67], [44.6804, -63.487, 64], [44.6622, -63.5364, 40], [44.603, - 63.743, 52] ...];
+
+	heatmap.setData( dataPoints );
+	
+	map.addLayer(heatmap);</pre>
+		</div>
+		<div class="last container">
+			<div id="footer">
+			</div>
+		</div>
+	
+	<script type="text/javascript" src="js/shCore.js"></script>
+	<script type="text/javascript" src="js/shBrushJScript.js"></script>
+	<script>
+	SyntaxHighlighter.all();
+	</script>
+	
+	<script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+	<script type="text/javascript" src="js/webgl-heatmap.js"></script>
+	<script type="text/javascript" src="js/webgl-heatmap-leaflet.js"></script>
+	
+	<script type="text/javascript" src="js/script.js"></script>
+	
+	</body>
+</html>
