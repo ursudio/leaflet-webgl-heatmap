@@ -18,6 +18,8 @@ It uses the following existing options in the library:
 
 See the [example](http://ursudio.github.io/webgl-heatmap-leaflet/)
 
+![Screenshot](http://i.imgur.com/VGXbWpx.png)
+
 ***
 Usage
 ===
