@@ -1,12 +1,13 @@
 {
   "name": "webgl-heatmap-leaflet",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "WebGL Heatmap Library for Leaflet",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
     "browsersync": "0.0.1-security",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "leaflet": "^1.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

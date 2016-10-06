@@ -1,4 +1,4 @@
-var map = L.map('map', {
+var map = L.map('mapid', {
     center: [44.68, -63.62],
     zoom: 12,
     minZoom: 8,
@@ -8,10 +8,10 @@ var map = L.map('map', {
     ]
 });
 
-map.fitBounds([
+/*map.fitBounds([
 	[44.58655513209543,-63.75091552734375],
 	[44.77403648591521,-63.50372314453124]
-	]);
+	]);*/
 
 L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     subdomains: 'abc'

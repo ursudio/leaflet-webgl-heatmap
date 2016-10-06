@@ -13,7 +13,7 @@
   <link rel="icon" href="./favicon.ico" sizes="16x16 32x32 48x48 64x64" />
 
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans|Fjalla+One" type="text/css" />
-  <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
   <link rel="stylesheet" href="./css/style.css" type="text/css" />
 
   <script>
@@ -34,6 +34,7 @@
 				<ul>
 					<li><a target="_blank" data-title="View on Github" href="https://github.com/ursudio/webgl-heatmap-leaflet"><img src="images/github_icon_20.png" height="20"
 					 /></a></li>
+					 <li><a target="_blank" data-title="Download from Github" href="https://github.com/ursudio/webgl-heatmap-leaflet/releases">Downloads</a></li>
 					 <li class="floatRight"><a target="_blank" data-title="See more Ursudio projects" href="http://www.ursudio.com/"><img src="images/apple-touch-icon.png" height="20"
 					 /></a></li>
 					 <li class="floatRight"><a target="_blank" data-title="Try out Leaflet" href="http://www.leafletjs.com/"><img src="images/leaflet_icon_20.png" height="20"
@@ -47,8 +48,10 @@
 				<h2>Using the <a href="http://codeflow.org/entries/2013/feb/04/high-performance-js-heatmaps/" target="_blank">WebGL Heatmap library</a>, made by Florian Bösch <a href="https://twitter.com/pyalot" target="_blank">(@pyalot)</a></h2>
 			</div>
 		</div>
-		<div id="map"></div>
-		<div class="container">
+
+		<div id="mapid"></div>
+
+		<div id="content" class="container">
 			<h2><a href="#data" id="data">Data</a></h2>
 			<p>
 			A visualization of the frequency and location of instagram photos tagged with <a href="http://instagram.com/aokhalifax" target="_blank">#aokhalifax</a>, a grass roots initiative to brighten the perspective of citizens and tourists: the goal being to promote positivity in Halifax.
@@ -64,7 +67,7 @@
 			<h2><a href="#usage" id="usage">Usage</a></h2>
 			<pre class="brush: js;">
     //Halifax, Nova Scotia
-	var map = L.map('map', {
+	var map = L.map('mapid', {
 		layers : [base],
 		center : [44.65, -63.57],
 		zoom: 12 
@@ -91,17 +94,21 @@
 			</div>
 		</div>
 	
-	<script type="text/javascript" src="js/shCore.js"></script>
-	<script type="text/javascript" src="js/shBrushJScript.js"></script>
+	<script type="text/javascript" src="./js/shCore.js"></script>
+	<script type="text/javascript" src="./js/shBrushJScript.js"></script>
 	<script>
 	SyntaxHighlighter.all();
 	</script>
 	
-	<script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-	<script type="text/javascript" src="js/webgl-heatmap.js"></script>
-	<script type="text/javascript" src="js/webgl-heatmap-leaflet.js"></script>
+	<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+	<!-- 
+	for development: use with npm install && gulp
+	<script src="./node_modules/leaflet/dist/leaflet-src.js"></script> 
+	-->
+	<script type="text/javascript" src="./dist/webgl-heatmap.js"></script>
+	<script type="text/javascript" src="./dist/webgl-heatmap-leaflet.js"></script>
 	
-	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="./js/script.js"></script>
 	
 	</body>
 </html>

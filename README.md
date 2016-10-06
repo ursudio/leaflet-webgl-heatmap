@@ -1,6 +1,10 @@
 WebGL Heatmap Leaflet Plugin
 =====================
 
+![MIT License](http://img.shields.io/badge/license-MIT-lightgrey.svg)
+&nbsp;
+![Leaflet](http://img.shields.io/badge/leaflet-1.0.1-green.svg?style=flat)
+
 A Leaflet plugin for [@pyalot](https://github.com/pyalot)'s [webgl heatmap library](https://github.com/pyalot/webgl-heatmap).
 
 As [@pyalot](https://github.com/pyalot) explains in his post, [High Performance JS heatmaps](http://codeflow.org/entries/2013/feb/04/high-performance-js-heatmaps/), sometimes there is a need to be able to draw hundreds of thousands of data points to a map (and not have your browser crash due to lag).
@@ -23,7 +27,7 @@ Set up your map
 
 ```
 var base = L.tileLayer( tileURL );
-var map = L.map('map', {
+var map = L.map('mapid', {
 	layers : [base],
 	center : [44.65, -63.57],
 	zoom: 12 
