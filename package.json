@@ -1,18 +1,20 @@
 {
   "name": "webgl-heatmap-leaflet",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "WebGL Heatmap Library for Leaflet",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
-    "browsersync": "0.0.1-security",
+    "browser-sync": "^2.18.5",
     "gulp": "^3.9.1",
-    "leaflet": "^1.0.1",
-    "uglify-js": "^2.7.3"
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "leaflet": "^1.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "uglifyjs dist/webgl-heatmap-leaflet.js -c -m -o dist/webgl-heatmap-leaflet.min.js"
+    "build": "gulp build",
+    "release": "./publish.sh || true"
   },
   "repository": {
     "type": "git",

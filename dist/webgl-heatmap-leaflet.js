@@ -7,7 +7,7 @@
 L.WebGLHeatMap = L.Renderer.extend({
 
     // tested on Leaflet 1.0.1
-    version : '0.2.0', 
+    version : '0.2.1', 
 
     options: {
         // @option size: Number
@@ -140,7 +140,7 @@ L.WebGLHeatMap = L.Renderer.extend({
     },
 
     _scalepx: function (latlng) {
-        return options.size;
+        return this.options.size;
     },
 
     // data handling methods
