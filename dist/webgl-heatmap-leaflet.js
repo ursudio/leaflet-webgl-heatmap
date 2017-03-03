@@ -108,7 +108,7 @@ L.WebGLHeatMap = L.Renderer.extend({
                 heatmap.addPoint(
                     floor(point.x),
                     floor(point.y),
-                    scaleFn(latlng),
+                    scaleFn.call(this, latlng),
                     dataVal[2]
                 );
             }
