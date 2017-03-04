@@ -4,6 +4,8 @@ WebGL Heatmap Leaflet Plugin
 ![MIT License](http://img.shields.io/badge/license-MIT-lightgrey.svg)
 &nbsp;
 ![Leaflet](http://img.shields.io/badge/leaflet-1.0.1-green.svg?style=flat)
+&nbsp;
+![Travis](https://api.travis-ci.org/ursudio/webgl-heatmap-leaflet.svg?branch=master)
 
 A Leaflet plugin for [@pyalot](https://github.com/pyalot)'s [webgl heatmap library](https://github.com/pyalot/webgl-heatmap).
 
