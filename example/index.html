@@ -9,11 +9,34 @@
   <meta name="author" content="Ursudio" />
   <meta name="description" content="A Leaflet plugin for a popular WebGL Heatmap library.">
 
-  <link rel="canonical" href="//ursudio.github.io/webgl-heatmap-leaflet/" />
-  <link rel="icon" href="./favicon.ico" sizes="16x16 32x32 48x48 64x64" />
+  <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+  <link rel="apple-touch-icon-precomposed" href="./images/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans|Fjalla+One" type="text/css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+  <!-- Schema.org markup for Google+ -->
+  <meta itemprop="name" content="WebGL Heatmap Leaflet Plugin">
+  <meta itemprop="description" content="A Leaflet plugin for a popular WebGL Heatmap library.">
+  <meta itemprop="image" content="./images/large-screenshot.jpg">
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WebGL Heatmap Leaflet Plugin">
+  <meta name="twitter:description" content="A Leaflet plugin for a popular WebGL Heatmap library.">
+  <meta name="twitter:creator" content="@bozdoz">
+  <meta name="twitter:image" content="./images/large-screenshot.jpg">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="WebGL Heatmap Leaflet Plugin">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://ursudio.github.io/webgl-heatmap-leaflet/">
+  <meta property="og:image" content="./images/large-screenshot.jpg">
+  <meta property="og:description" content="A Leaflet plugin for a popular WebGL Heatmap library.">
+  <meta property="og:site_name" content="WebGL Heatmap Leaflet Plugin">
+
+  <link rel="canonical" href="https://ursudio.github.io/webgl-heatmap-leaflet/" />
+  <link rel="icon" href="./favicon.ico" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Fjalla+One" type="text/css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
   <link rel="stylesheet" href="./css/style.css" type="text/css" />
 
   <script>
@@ -24,7 +47,6 @@
 
     ga('create', 'UA-12338134-13', 'auto');
     ga('send', 'pageview');
-
   </script>
   
 </head>
@@ -32,12 +54,12 @@
 		<div class="first container">
 			<div id="navigation">
 				<ul>
-					<li><a target="_blank" data-title="View on Github" href="https://github.com/ursudio/webgl-heatmap-leaflet"><img src="images/github_icon_20.png" height="20"
+					<li><a target="_blank" data-title="View on Github" href="https://github.com/ursudio/webgl-heatmap-leaflet"><img src="./images/github_icon_20.png" height="20"
 					 /></a></li>
 					 <li><a target="_blank" data-title="Download from Github" href="https://github.com/ursudio/webgl-heatmap-leaflet/releases">Downloads</a></li>
-					 <li class="floatRight"><a target="_blank" data-title="See more Ursudio projects" href="http://www.ursudio.com/"><img src="images/apple-touch-icon.png" height="20"
+					 <li class="floatRight"><a target="_blank" data-title="See more Ursudio projects" href="http://www.ursudio.com/"><img src="./images/apple-touch-icon.png" height="20"
 					 /></a></li>
-					 <li class="floatRight"><a target="_blank" data-title="Try out Leaflet" href="http://www.leafletjs.com/"><img src="images/leaflet_icon_20.png" height="20"
+					 <li class="floatRight"><a target="_blank" data-title="Try out Leaflet" href="http://www.leafletjs.com/"><img src="./images/leaflet_icon_20.png" height="20"
 					 /></a></li>
 				</ul>
 			</div>
@@ -93,22 +115,21 @@
 			<div id="footer">
 			</div>
 		</div>
-	
+
 	<script type="text/javascript" src="./js/shCore.js"></script>
 	<script type="text/javascript" src="./js/shBrushJScript.js"></script>
 	<script>
 	SyntaxHighlighter.all();
 	</script>
 	
-	<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 	<!-- 
 	for development: use with npm install && gulp
 	<script src="./node_modules/leaflet/dist/leaflet-src.js"></script> 
 	-->
-	<script type="text/javascript" src="./dist/webgl-heatmap.js"></script>
-	<script type="text/javascript" src="./dist/webgl-heatmap-leaflet.min.js"></script>
-	
-	<script type="text/javascript" src="./js/script.js"></script>
-	
+	<script type="text/javascript" src="../src/webgl-heatmap/webgl-heatmap.js"></script>
+	<script type="text/javascript" src="../src/leaflet-webgl-heatmap.js"></script>
+
+	<script type="text/javascript" src="./js/script.js"></script>	
 	</body>
 </html>

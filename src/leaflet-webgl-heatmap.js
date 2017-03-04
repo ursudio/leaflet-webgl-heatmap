@@ -6,8 +6,8 @@
 
 L.WebGLHeatMap = L.Renderer.extend({
 
-    // tested on Leaflet 1.0.1
-    version: '0.2.1',
+    // tested on Leaflet 1.0.3
+    version: '0.2.2',
 
     options: {
         // @option size: Number
@@ -25,24 +25,42 @@ L.WebGLHeatMap = L.Renderer.extend({
     },
 
     _initContainer: function() {
-        var container = this._container = document.createElement('canvas'),
+        var container = this._container = L.DomUtil.create('canvas', 'leaflet-zoom-animated'),
             options = this.options;
 
         container.id = 'webgl-leaflet-' + L.Util.stamp(this);
         container.style.opacity = options.opacity;
         container.style.position = 'absolute';
 
-        this.gl = window.createWebGLHeatmap({
-            canvas: container,
-            gradientTexture: options.gradientTexture,
-            alphaRange: [0, options.alphaRange]
-        });
+        try {
+            this.gl = window.createWebGLHeatmap({
+                canvas: container,
+                gradientTexture: options.gradientTexture,
+                alphaRange: [0, options.alphaRange]
+            });
+        } catch (e) {
+            console.error(e);
+            
+            // setup for webgl-less unit testing
+            this.gl = {
+                clear: function () {},
+                update: function () {},
+                multiply: function () {},
+                addPoint: function () {},
+                display: function () {},
+                adjustSize: function () {},
+            };
+        }
 
         this._container = container;
     },
 
     onAdd: function() {
+        // save this to a shorter method
+        this.size = this.options.size;
+
         L.Renderer.prototype.onAdd.call(this);
+
         this.resize();
     },
 
@@ -89,9 +107,11 @@ L.WebGLHeatMap = L.Renderer.extend({
     draw: function() {
         var map = this._map,
             heatmap = this.gl,
-            dataLen = this.data.length,
+            data = this.data,
+            dataLen = data.length,
             floor = Math.floor,
-            scaleFn = this['_scale' + this.options.units];
+            scaleFn = this['_scale' + this.options.units].bind( this ),
+            multiply = this._multiply;
 
         if (!map) return;
 
@@ -101,22 +121,22 @@ L.WebGLHeatMap = L.Renderer.extend({
         if (dataLen) {
 
             for (var i = 0; i < dataLen; i++) {
-                var dataVal = this.data[i],
+                var dataVal = data[i],
                     latlng = L.latLng(dataVal),
                     point = map.latLngToContainerPoint(latlng);
 
                 heatmap.addPoint(
                     floor(point.x),
                     floor(point.y),
-                    scaleFn.call(this, latlng),
+                    scaleFn(latlng),
                     dataVal[2]
                 );
             }
 
             heatmap.update();
 
-            if (this._multiply) {
-                heatmap.multiply(this._multiply);
+            if (multiply) {
+                heatmap.multiply(multiply);
                 heatmap.update();
             }
 
@@ -130,8 +150,9 @@ L.WebGLHeatMap = L.Renderer.extend({
         // necessary to maintain accurately sized circles
         // to change scale to miles (for example), you will need to convert 40075017 (equatorial circumference of the Earth in metres) to miles
         var map = this._map,
-            lngRadius = (this.options.size / 40075017) *
-            360 / Math.cos(L.LatLng.DEG_TO_RAD * latlng.lat),
+            lngRadius = (this.size / 40075017) *
+                360 / 
+                Math.cos((Math.PI / 180) * latlng.lat),
             latlng2 = new L.LatLng(latlng.lat, latlng.lng - lngRadius),
             point = map.latLngToLayerPoint(latlng),
             point2 = map.latLngToLayerPoint(latlng2);
@@ -139,8 +160,8 @@ L.WebGLHeatMap = L.Renderer.extend({
         return Math.max(Math.round(point.x - point2.x), 1);
     },
 
-    _scalepx: function(latlng) {
-        return this.options.size;
+    _scalepx: function() {
+        return this.size;
     },
 
     // data handling methods

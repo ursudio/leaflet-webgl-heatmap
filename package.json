@@ -1,18 +1,28 @@
 {
-  "name": "webgl-heatmap-leaflet",
-  "version": "0.2.1",
-  "description": "WebGL Heatmap Library for Leaflet",
-  "main": "gulpfile.js",
+  "name": "leaflet-webgl-heatmap",
+  "version": "0.2.2",
+  "description": "A Leaflet plugin for a popular WebGL Heatmap library.",
+  "main": "./dist/leaflet-webgl-heatmap.js",
+  "files": [
+    "./dist/*",
+    "./src/*"
+  ],
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.18.5",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.0",
-    "leaflet": "^1.0.1"
+    "jshint": "^2.9.4",
+    "leaflet": "^1.0.3"
   },
+  "preinstall" : "npm i -g casperjs jshint gulp",
+  "start": "gulp",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test-src && npm run test-example && npm run test-casper",
+    "test-src": "jshint ./src/leaflet-webgl-heatmap.js",
+    "test-example": "jshint ./example/js/script.js",
+    "test-casper": "casperjs test ./caspertest.js",
     "build": "gulp build",
     "release": "./publish.sh || true"
   },
@@ -23,7 +33,8 @@
   "keywords": [
     "heatmap",
     "webgl",
-    "leaflet"
+    "leaflet",
+    "plugin"
   ],
   "author": "Ursudio",
   "license": "MIT",

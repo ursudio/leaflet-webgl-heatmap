@@ -1,0 +1,3 @@
+[submodule "src/webgl-heatmap"]
+	path = src/webgl-heatmap
+	url = https://github.com/pyalot/webgl-heatmap.git

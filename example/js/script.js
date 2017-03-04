@@ -5,27 +5,23 @@ var map = L.map('mapid', {
     maxBounds : [
     	[43.957236472025635,-64.6600341796875],
     	[45.45627757127799,-62.6824951171875,]
-    ]
-});
+        ]
+    });
 
-/*map.fitBounds([
-	[44.58655513209543,-63.75091552734375],
-	[44.77403648591521,-63.50372314453124]
-	]);*/
-
-L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    subdomains: 'abc'
-}).addTo(map);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        subdomains: 'abc'
+    }).addTo(map);
 
 map.attributionControl.addAttribution(' © <a href="http://www.openstreetmap.org/">OpenStreetMap</a> contributors');
+
 map.scrollWheelZoom.disable();
 
 L.control.scale().addTo(map);
 
 //custom size for this example, and autoresize because map style has a percentage width
 var heatmap = L.webGLHeatmap({
-    size: 50,
-    units: 'px',
+    size: 600,
+    units: 'm',
     alphaRange: 0.4
 });
 
@@ -121,4 +117,8 @@ var dataPoints = [
 heatmap.setData(dataPoints);
 heatmap.multiply(2);
 
-map.addLayer(heatmap);
+try {
+    map.addLayer(heatmap);
+} catch (e) {
+    throw e;
+}

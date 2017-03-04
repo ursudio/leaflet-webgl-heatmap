@@ -8,8 +8,9 @@ gulp.task('default', ['bs']);
 gulp.task('bs', function() {
     return browserSync.init({
         server: {
-            baseDir: "./"
+            baseDir: "./",
         },
+        startPath: './example/index.html',
         ui : false,
         watchOptions: {
             ignoreInitial: true,
@@ -20,7 +21,7 @@ gulp.task('bs', function() {
 });
 
 gulp.task('build', function () {
-    return gulp.src(['./dist/webgl-heatmap-leaflet.js'])
+    return gulp.src(['./src/leaflet-webgl-heatmap.js'])
         .pipe(uglify({
             preserveComments : 'license'
         }))

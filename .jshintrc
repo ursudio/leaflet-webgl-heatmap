@@ -1,0 +1,10 @@
+{
+	"undef": true,
+	"unused": true,
+	"eqeqeq": true,
+	"globals": {
+		"window" : true,
+		"L" : true,
+		"console" : true
+	}
+}
