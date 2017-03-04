@@ -5,7 +5,7 @@ WebGL Heatmap Leaflet Plugin
 &nbsp;
 ![Leaflet](http://img.shields.io/badge/leaflet-1.0.1-green.svg?style=flat)
 &nbsp;
-![Travis](https://api.travis-ci.org/ursudio/webgl-heatmap-leaflet.svg?branch=master)
+[![Build Status](https://travis-ci.org/ursudio/webgl-heatmap-leaflet.svg?branch=master)](https://travis-ci.org/ursudio/webgl-heatmap-leaflet)
 
 A Leaflet plugin for [@pyalot](https://github.com/pyalot)'s [webgl heatmap library](https://github.com/pyalot/webgl-heatmap).
 
