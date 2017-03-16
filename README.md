@@ -25,7 +25,7 @@ See the [example](http://ursudio.github.io/leaflet-webgl-heatmap/)
 ## Installation
 
 via npm:
-```
+```bash
 npm install leaflet-webgl-heatmap --save 
 ```
 
@@ -33,7 +33,7 @@ npm install leaflet-webgl-heatmap --save
 
 ### Set up your map
 
-```
+```javascript
 var base = L.tileLayer( tileURL );
 var map = L.map('mapid', {
 	layers : [base],
@@ -44,13 +44,15 @@ var map = L.map('mapid', {
 
 ### Initialize Heatmap
 
-```
+```javascript
 var heatmap = new L.webGLHeatmap({
     size: diameter-in-meters
 });
 ```
+
 OR in pixels (doesn't scale with zoom levels):
-```
+
+```javascript
 var heatmap = new L.webGLHeatmap({
     size: diameter-in-pixels,
     units: 'px'
