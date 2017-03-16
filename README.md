@@ -1,5 +1,5 @@
 WebGL Heatmap Leaflet Plugin
-=====================
+============================
 
 ![MIT License](http://img.shields.io/badge/license-MIT-lightgrey.svg)
 &nbsp;
@@ -22,12 +22,16 @@ See the [example](http://ursudio.github.io/leaflet-webgl-heatmap/)
 
 ![Screenshot](http://i.imgur.com/VGXbWpx.png)
 
-***
-Usage
-===
+##Installation
 
-Set up your map
----
+via npm:
+```
+npm install leaflet-webgl-heatmap --save 
+```
+
+##Usage
+
+###Set up your map
 
 ```
 var base = L.tileLayer( tileURL );
@@ -38,8 +42,8 @@ var map = L.map('mapid', {
 });
 ```
 
-Initialize Heatmap
----    
+###Initialize Heatmap
+
 ```
 var heatmap = new L.webGLHeatmap({
     size: diameter-in-meters
@@ -53,8 +57,8 @@ var heatmap = new L.webGLHeatmap({
 });
 ```
 
-Add Data
----
+###Add Data
+
 You should have an array of arrays in format: `[[lat, lng]...]` or be explicit with the point intensities: `[[lat, lng, intensity]...]`
 
 ```
@@ -63,25 +67,24 @@ var dataPoints = [[44.6674, -63.5703, 37], [44.6826, -63.7552, 34], [44.6325, -6
 
 With this you can add the whole dataset with `heatmap.setData(dataPoints)`.
 
-Add heatmap to map
----
+###Add heatmap to map
 
 ```
 map.addLayer( heatmap );
 ```
 
-Options
-===
+##Options
+
 * size (in meters or pixels)
 * units (m or px)
 * opacity (for the canvas element)
 * gradientTexture (image url or image)
 * alphaRange (adjust transparency by changing to value between 0 and 1)
 
-Methods
-===
+##Methods
+
 * multiply (alter the intensity values of all points by a given number)
 
-License
-===
+##License
+
 * MIT: see mit-license
