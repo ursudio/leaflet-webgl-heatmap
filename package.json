@@ -1,8 +1,8 @@
 {
   "name": "leaflet-webgl-heatmap",
-  "version": "0.2.2",
+  "version": "0.2.5",
   "description": "A Leaflet plugin for a popular WebGL Heatmap library.",
-  "main": "./dist/leaflet-webgl-heatmap.js",
+  "main": "./dist/leaflet-webgl-heatmap.min.js",
   "files": [
     "./dist/*",
     "./src/*"
