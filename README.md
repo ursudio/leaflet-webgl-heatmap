@@ -22,18 +22,18 @@ See the [example](http://ursudio.github.io/leaflet-webgl-heatmap/)
 
 ![Screenshot](http://i.imgur.com/VGXbWpx.png)
 
-##Installation
+## Installation
 
 via npm:
-```
+```bash
 npm install leaflet-webgl-heatmap --save 
 ```
 
-##Usage
+## Usage
 
-###Set up your map
+### Set up your map
 
-```
+```javascript
 var base = L.tileLayer( tileURL );
 var map = L.map('mapid', {
 	layers : [base],
@@ -42,38 +42,40 @@ var map = L.map('mapid', {
 });
 ```
 
-###Initialize Heatmap
+### Initialize Heatmap
 
-```
+```javascript
 var heatmap = new L.webGLHeatmap({
     size: diameter-in-meters
 });
 ```
+
 OR in pixels (doesn't scale with zoom levels):
-```
+
+```javascript
 var heatmap = new L.webGLHeatmap({
     size: diameter-in-pixels,
     units: 'px'
 });
 ```
 
-###Add Data
+### Add Data
 
 You should have an array of arrays in format: `[[lat, lng]...]` or be explicit with the point intensities: `[[lat, lng, intensity]...]`
 
-```
+```javascript
 var dataPoints = [[44.6674, -63.5703, 37], [44.6826, -63.7552, 34], [44.6325, -63.5852, 41], [44.6467, -63.4696, 67], [44.6804, -63.487, 64], [44.6622, -63.5364, 40], [44.603, - 63.743, 52]];
 ```
 
 With this you can add the whole dataset with `heatmap.setData(dataPoints)`.
 
-###Add heatmap to map
+### Add heatmap to map
 
-```
+```javascript
 map.addLayer( heatmap );
 ```
 
-##Options
+## Options
 
 * size (in meters or pixels)
 * units (m or px)
@@ -81,10 +83,10 @@ map.addLayer( heatmap );
 * gradientTexture (image url or image)
 * alphaRange (adjust transparency by changing to value between 0 and 1)
 
-##Methods
+## Methods
 
 * multiply (alter the intensity values of all points by a given number)
 
-##License
+## License
 
 * MIT: see mit-license

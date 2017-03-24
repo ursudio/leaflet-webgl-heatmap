@@ -68,7 +68,7 @@ casper.test.begin('Page loads without error', 7, function suite(test) {
             return meters._scalem(L.latLng(meters.data[0]));
         }, 8, 'meters scale is correct after zoom');
 
-        /* 5 */
+        /* 6 */
         test.assertEvalEquals(function() {
             window.pixels = L.webGLHeatmap({
                 size: 50,
@@ -80,7 +80,7 @@ casper.test.begin('Page loads without error', 7, function suite(test) {
             return pixels._scalepx(L.latLng(pixels.data[0]));
         }, 50, 'pixel scale is correct');
 
-        /* 5 */
+        /* 7 */
         test.assertEvalEquals(function() {
             map.setZoom(4);
             return pixels._scalepx(L.latLng(pixels.data[0]));
