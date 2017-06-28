@@ -61,5 +61,9 @@ casper.test.begin('Page loads without error', function suite (test) {
 
     casper.run(function() {
         test.done();
+        this.page.close();
+        window.setTimeout(function () {
+            casper.exit();
+        }, 150);
     });
 });

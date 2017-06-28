@@ -23,7 +23,7 @@
     "test": "npm run test-src && npm run test-example && npm run test-casper",
     "test-src": "jshint ./src/leaflet-webgl-heatmap.js",
     "test-example": "jshint ./example/js/script.js",
-    "test-casper": "casperjs test ./tests/ --includes=casper-helpers.js",
+    "test-casper": "casperjs test ./tests/ --includes=casper-helpers.js --web-security=no",
     "build": "gulp build",
     "release": "./publish.sh || true"
   },
