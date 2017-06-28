@@ -1,6 +1,6 @@
 {
   "name": "leaflet-webgl-heatmap",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A Leaflet plugin for a popular WebGL Heatmap library.",
   "main": "dist/leaflet-webgl-heatmap.min.js",
   "files": [
@@ -15,7 +15,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.0",
     "jshint": "^2.9.4",
-    "leaflet": "^1.0.3"
+    "leaflet": "^1.1.0"
   },
   "preinstall": "npm i -g casperjs jshint gulp",
   "start": "gulp",
@@ -23,7 +23,7 @@
     "test": "npm run test-src && npm run test-example && npm run test-casper",
     "test-src": "jshint ./src/leaflet-webgl-heatmap.js",
     "test-example": "jshint ./example/js/script.js",
-    "test-casper": "casperjs test ./caspertest.js",
+    "test-casper": "casperjs test ./tests/ --includes=casper-helpers.js",
     "build": "gulp build",
     "release": "./publish.sh || true"
   },
@@ -38,6 +38,12 @@
     "plugin"
   ],
   "author": "Ursudio",
+  "contributors": [
+    {
+      "name": "Chris Willey",
+      "url": "https://github.com/chriswilley"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ursudio/webgl-heatmap-leaflet/issues"

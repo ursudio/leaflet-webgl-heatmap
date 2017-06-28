@@ -2,12 +2,25 @@
 
 VERSION=$(node --eval "console.log(require('./package.json').version);")
 
-# test
-npm run test
+echo "Version : $VERSION"
+echo "Is the version bumped?"
+echo "---"
+echo "Add a comment?"
+read comment
 
-# publish master branch
 gulp build
-git commit -am "v$VERSION"
-git tag v$VERSION -f
+
+if [[ $comment ]]; then
+	git commit -am "v$VERSION - $comment"
+	git tag -a v$VERSION -m "$comment" -f
+else
+	git commit -am "v$VERSION"
+	git tag v$VERSION -f
+fi
+	
 git push --tags -f
 git push
+
+echo "Uploading to NPM..."
+
+npm publish

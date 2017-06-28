@@ -7,7 +7,7 @@
 L.WebGLHeatMap = L.Renderer.extend({
 
     // tested on Leaflet 1.0.3
-    version: '0.2.2',
+    version: '0.2.7',
 
     options: {
         // @option size: Number
@@ -62,6 +62,14 @@ L.WebGLHeatMap = L.Renderer.extend({
         L.Renderer.prototype.onAdd.call(this);
 
         this.resize();
+    },
+
+    // onRemove-ish
+    _destroyContainer: function () {
+        delete this.gl;
+        L.DomUtil.remove(this._container);
+        L.DomEvent.off(this._container);
+        delete this._container;
     },
 
     // events
