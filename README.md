@@ -26,7 +26,7 @@ See the [example](http://ursudio.github.io/leaflet-webgl-heatmap/)
 
 via npm:
 ```bash
-npm install leaflet-webgl-heatmap --save 
+npm install leaflet-webgl-heatmap 
 ```
 
 ## Usage
