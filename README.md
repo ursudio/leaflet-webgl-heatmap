@@ -13,11 +13,6 @@ As [@pyalot](https://github.com/pyalot) explains in his post, [High Performance 
 
 We used his library to create a WebGL alternative to Leaflet's existing heatmap plugins.
 
-It uses the following existing options in the library:
-
-* gradientTexture (use a PNG instead of default green to red)
-* alphaRange (show transparency)
-
 See the [example](http://ursudio.github.io/leaflet-webgl-heatmap/)
 
 ![Screenshot](http://i.imgur.com/VGXbWpx.png)
@@ -26,7 +21,7 @@ See the [example](http://ursudio.github.io/leaflet-webgl-heatmap/)
 
 via npm:
 ```bash
-npm install leaflet-webgl-heatmap --save 
+npm install leaflet-webgl-heatmap 
 ```
 
 ## Usage
