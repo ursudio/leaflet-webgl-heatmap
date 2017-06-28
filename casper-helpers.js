@@ -66,7 +66,8 @@ var capture = function (alt) {
 };
 
 casper.on("page.error", function(msg, trace) {
-    if (msg === 'WebGL not supported') {
+    if (msg === 'WebGL not supported' ||
+        msg.match(/^ReferenceError.*?Uint8ClampedArray$/)) {
         // we know
         return;
     }
